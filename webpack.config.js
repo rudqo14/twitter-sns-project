@@ -29,11 +29,6 @@ module.exports = {
           postTransformPublicPath: (p) => `__webpack_public_path__ + ${p}`,
         },
       },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-        exclude: /node_modules/,
-      },
     ],
   },
 
@@ -51,7 +46,7 @@ module.exports = {
   },
 
   plugins: [
-    new MiniCssExtractorPlugin({ filename: 'dist/style.css' }),
+    // new MiniCssExtractorPlugin({ filename: 'dist/style.css' }),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
