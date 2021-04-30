@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './nav.scss';
 
-type MainProps = {};
+type NavProps = {};
 
-const Nav = ({}: MainProps) => {
+const Nav = () => {
   return (
     <nav className='navBar'>
       <div className='navContainer'>
@@ -11,11 +12,15 @@ const Nav = ({}: MainProps) => {
           <img src='./Public/Images/logo_disquiet.8e484ca2.svg' alt='logo' />
         </div>
         <div className='navMenuContainer'>
-          <p>사이트소개</p>
-          <p>커뮤니티</p>
-          <p>블로그</p>
-          <p>Mac-App공유하기</p>
-          <div className='profileImgContainer'></div>
+          <Link to='/'>사이트소개</Link>
+          <Link to='/'>커뮤니티</Link>
+          <Link to='/'>블로그</Link>
+          <div className='border' />
+          <Link to='/'>App 공유하기</Link>
+          <div className='border' />
+          <div className='profileImgContainer'>
+            <img src='./Public/Images/profileImg.png' alt='profileImg' />
+          </div>
         </div>
       </div>
     </nav>
