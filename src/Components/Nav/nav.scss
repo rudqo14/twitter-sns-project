@@ -1,0 +1,36 @@
+.navBar {
+  width: 100%;
+  height: 48px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #d4d4d4;
+
+  .navContainer {
+    width: 1120px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    .navLogoContainer {
+      width: 103px;
+      height: 48px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .navMenuContainer {
+      display: flex;
+
+      p {
+        margin: auto 10px;
+      }
+    }
+  }
+}
