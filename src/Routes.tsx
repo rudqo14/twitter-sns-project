@@ -7,10 +7,12 @@ import './Styles/normalize.scss';
 function Routes() {
   return (
     <Router>
+      <Nav />
       <Switch>
         <Route path='/' component={Main} exact />
-        <Route path='/nav' component={Nav} exact />
+        {/* <Route path='/nav' component={Nav} exact /> */}
       </Switch>
+      /
     </Router>
   );
 }
