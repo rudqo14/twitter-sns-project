@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const prod = process.env.NODE_ENV === 'production';
@@ -6,6 +8,7 @@ const prod = process.env.NODE_ENV === 'production';
 module.exports = {
   mode: prod ? 'production' : 'development',
   devtool: prod ? 'hidden-source-map' : 'eval',
+  // devtool: 'inline-source-map',
   entry: './src/index.tsx',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -19,13 +22,13 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
         loader: 'file-loader',
         options: {
-          publicPath: '/some/path/',
+          publicPath: 'images',
           postTransformPublicPath: (p) => `__webpack_public_path__ + ${p}`,
         },
       },
@@ -46,13 +49,18 @@ module.exports = {
   },
 
   plugins: [
-    // new MiniCssExtractorPlugin({ filename: 'dist/style.css' }),
+    new MiniCssExtractPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      // favicon: './src/favicon.ico',
     }),
+    // new FaviconsWebpackPlugin('./src/favicon-32x32.png'),
   ],
+  performance: {
+    hints: false,
+  },
 };
