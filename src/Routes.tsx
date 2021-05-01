@@ -9,10 +9,8 @@ function Routes() {
     <Router>
       <Nav />
       <Switch>
-        <Route path='/' component={Main} exact />
-        {/* <Route path='/nav' component={Nav} exact /> */}
+        <Route path='' component={Main} exact />
       </Switch>
-      /
     </Router>
   );
 }
