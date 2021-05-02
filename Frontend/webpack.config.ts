@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
     },
   },
   entry: {
-    app: './client',
+    app: './index',
   },
   module: {
     rules: [
@@ -58,7 +58,7 @@ const config: webpack.Configuration = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
       // eslint: {
-      //   files: "./src/**/*",
+      //   files: './src/**/*',
       // },
     }),
     new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? 'development' : 'production' }),
