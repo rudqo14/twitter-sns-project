@@ -6,9 +6,9 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const config: webpack.Configuration = {
-  name: 'sleact',
+  name: 'Be my mac app',
   mode: isDevelopment ? 'development' : 'production',
-  devtool: isDevelopment ? 'hidden-source-map' : 'inline-source-map',
+  devtool: isDevelopment ? 'hidden-source-map' : 'eval',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
     },
   },
   entry: {
-    app: './index',
+    app: './client',
   },
   module: {
     rules: [
