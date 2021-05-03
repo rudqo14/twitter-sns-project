@@ -1,10 +1,9 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Login from '@pages/Login/Login';
-import SignUp from '@pages/SignUp/SignUp';
+import loadable from '@loadable/component';
 
-// const Login = () => <div>Homcdsaffdffdfafafdasdfassde</div>;
-// const SignUp = () => <div>Home</div>;
+const Login = loadable(() => import('@pages/Login/Login'));
+const SignUp = loadable(() => import('@pages/SignUp/SignUp'));
 
 const App = () => {
   return (
@@ -13,7 +12,6 @@ const App = () => {
       <Route path='/login' component={Login} />
       <Route path='/signup' component={SignUp} />
     </Switch>
-    // <div>adsf</div>
   );
 };
 
