@@ -8,7 +8,7 @@ const Home = () => {
       <Head>
         <title>Be my mac app</title>
       </Head>
-      <div>메인페이지</div>
+      <div></div>
     </>
   );
 };

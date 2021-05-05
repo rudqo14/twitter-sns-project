@@ -7,7 +7,7 @@ const Signup = () => {
       <Head>
         <title>회원가입 | BeMyMacApp</title>
       </Head>
-      <div>회원가입 페이지</div>
+      <div></div>
     </>
   );
 };
