@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Menu } from "antd";
 
+// const AppLayout = ({ children }: AppLayout) => {
 const AppLayout = ({ children }: AppLayout) => {
   return (
     <div>
