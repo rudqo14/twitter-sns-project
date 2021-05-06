@@ -7,7 +7,7 @@ const App = ({ Component }) => {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <title>Be my mac app</title>
       </Head>
       <Component />
