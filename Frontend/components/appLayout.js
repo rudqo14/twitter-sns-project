@@ -1,9 +1,17 @@
 import React from "react";
 import Link from "next/link";
-import { Menu, Input, Row, Col } from "antd";
+import PropTypes from "prop-types";
+import { Col, Input, Menu, Row } from "antd";
 
-// const AppLayout = ({ children }: AppLayout) => {
-const AppLayout = ({ children }: AppLayout) => {
+// const dummy = {
+//   nickname: "제로초",
+//   Post: [],
+//   Followings: [],
+//   Followers: [],
+//   isLoggedIn: false,
+// };
+
+const AppLayout = ({ children }) => {
   return (
     <div>
       <Menu mode="horizontal">
@@ -18,7 +26,7 @@ const AppLayout = ({ children }: AppLayout) => {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <Input.Search style={{ verticalAlign: "middle" }} />
+          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
         </Menu.Item>
         <Menu.Item>
           <Link href="/signup">
@@ -28,24 +36,21 @@ const AppLayout = ({ children }: AppLayout) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          왼쪽 메뉴
+          <div>왼쪽메뉴</div>
         </Col>
         <Col xs={24} md={12}>
           {children}
         </Col>
         <Col xs={24} md={6}>
-          <a href="/" target="_blank" rel="noreferrer">
-            오른쪽 메뉴
-          </a>
+          kim
         </Col>
       </Row>
-      {children}
     </div>
   );
 };
 
-interface AppLayout {
-  children: React.ReactNode;
-}
+AppLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default AppLayout;

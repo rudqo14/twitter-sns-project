@@ -1,13 +1,15 @@
 import React from "react";
 import Head from "next/head";
 
+import AppLayout from "/components/AppLayout";
+
 const Profile = () => {
   return (
     <>
       <Head>
         <title>내 프로필 | BeMyMacApp</title>
       </Head>
-      <div></div>
+      <AppLayout>내 프로필</AppLayout>
     </>
   );
 };

@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
+
 import AppLayout from "../components/appLayout";
 
-const Home = () => {
+const Main = () => {
   return (
     <>
       <Head>
-        <title>Be my mac app</title>
+        <title>BeMyMacApp</title>
       </Head>
-      <div></div>
+      <AppLayout>메인 페이지</AppLayout>
     </>
   );
 };
 
-export default Home;
+export default Main;
