@@ -1,22 +1,20 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { Form, Input, Button } from "antd";
+import { useDispatch } from "react-redux";
 
-const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+import useInput from "../hooks/useInput";
+import { loginAction } from "../reducers";
 
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
-
-  const onChangePassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [id, onChangeId] = useInput("");
+  const [password, onChangePassword] = useInput("");
 
   const onSubmitForm = useCallback(() => {
-    setIsLoggedIn(true);
+    console.log(id, password);
+    dispatch(loginAction({ id, password }));
   }, [id, password]);
 
   return (
@@ -27,7 +25,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         <Input name="user-id" value={id} onChange={onChangeId} required />
       </div>
       <div>
-        <label htmlFor="user-password">아이디</label>
+        <label htmlFor="user-password">비밀번호</label>
         <br />
         <Input
           name="user-password"
