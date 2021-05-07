@@ -1,11 +1,36 @@
-import React from "react";
-import { Form } from "antd";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import { Card, Avatar, Button } from "antd";
+
+import { logoutAction } from "../reducers";
 
 const UserProfile = () => {
+  const dispatch = useDispatch();
+
+  const onLogOut = useCallback(() => {
+    dispatch(logoutAction());
+  }, []);
+
   return (
-    <Form>
-      <div></div>
-    </Form>
+    <Card
+      actions={[
+        <div key="twit">
+          짹짹
+          <br />0
+        </div>,
+        <div key="followings">
+          팔로잉
+          <br />0
+        </div>,
+        <div key="follower">
+          팔로워
+          <br />0
+        </div>,
+      ]}
+    >
+      <Card.Meta avatar={<Avatar>ZC</Avatar>} title="김경배" />
+      <Button onClick={onLogOut}>로그아웃</Button>
+    </Card>
   );
 };
 
