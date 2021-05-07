@@ -11,7 +11,7 @@ const AppLayout = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div>
+    <>
       <Menu mode="horizontal">
         <Menu.Item>
           <Link href="/">
@@ -49,7 +49,7 @@ const AppLayout = ({ children }) => {
           </a> */}
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 

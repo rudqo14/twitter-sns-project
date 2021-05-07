@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { Form, Input, Button } from "antd";
-
 import Link from "next/link";
 import styled from "styled-components";
+import { Form, Input, Button } from "antd";
 
 const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("");
@@ -17,7 +16,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
   }, []);
 
   const onSubmitForm = useCallback(() => {
-    console.log(id, password);
     setIsLoggedIn(true);
   }, [id, password]);
 
@@ -56,7 +54,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
 export default LoginForm;
 
 const ButtonWrapper = styled.div`
-  .margin-top: 10px;
+  margin-top: 10px;
 `;
 
 const FormWrapper = styled(Form)`
