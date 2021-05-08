@@ -4,7 +4,7 @@ export const initialState = {
       id: 1,
       User: {
         id: 1,
-        nickname: "제로초",
+        nickname: "김경배",
       },
       content: "첫 번째 게시글",
       Images: [
@@ -57,12 +57,16 @@ const dummyPost = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-    default:
       return {
         ...state,
         mainPosts: [dummyPost, ...state.mainPosts],
         postAdded: true,
       };
+    default: {
+      return {
+        ...state,
+      };
+    }
   }
 };
 

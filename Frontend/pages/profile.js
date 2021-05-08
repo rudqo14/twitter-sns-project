@@ -7,12 +7,12 @@ import FollowList from "../components/followList";
 
 const Profile = () => {
   const followingList = [
-    { nickname: "김경배" },
+    { nickname: "필로잉" },
     { nickname: "test" },
     { nickname: "오피셜" },
   ];
   const followerList = [
-    { nickname: "김경배" },
+    { nickname: "팔로워" },
     { nickname: "test" },
     { nickname: "오피셜" },
   ];
