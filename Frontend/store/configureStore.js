@@ -1,16 +1,18 @@
 import { createWrapper } from "next-redux-wrapper";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import reducer from "../reducers";
 
 const configureStore = () => {
-  const store = createStore(reducer);
+  const middlewares = []; //middleware is not function - error
+  //배포용에서 히스토리가 쌓이면 보안에 취약할수있어 개발용에서만 Devtools 연결
+  const enhancer =
+    process.env.NODE_ENV === "production"
+      ? compose(applyMiddleware(...middlewares))
+      : composeWithDevTools(applyMiddleware(...middlewares));
 
-  store.dispatch({
-    type: "CHANGE_NICKNAME",
-    data: "김아무개",
-  });
-
+  const store = createStore(reducer, enhancer);
   return store;
 };
 

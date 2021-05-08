@@ -1,16 +1,21 @@
 import React from "react";
-import Head from "next/head";
+import { useSelector } from "react-redux";
 
 import AppLayout from "../components/appLayout";
+import PostForm from "../components/postForm";
+import PostCard from "../components/postCard";
 
 const Main = () => {
+  const { isLoggedIn } = useSelector((state) => state.user);
+  const { mainPosts } = useSelector((state) => state.post);
+
   return (
-    <>
-      <Head>
-        <title>BeMyMacApp</title>
-      </Head>
-      <AppLayout>메인 페이지</AppLayout>
-    </>
+    <AppLayout>
+      {isLoggedIn && <PostForm />}
+      {mainPosts.map((post) => (
+        <PostCard key="post.id" post={post} />
+      ))}
+    </AppLayout>
   );
 };
 
