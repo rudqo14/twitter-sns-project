@@ -1,26 +1,46 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
-import { Card, Popover, Button, Avatar } from "antd";
+import { Card, Popover, Button, Avatar, List, Comment } from "antd";
 import {
   RetweetOutlined,
   HeartOutlined,
   MessageOutlined,
   EllipsisOutlined,
+  HeartTwoTone,
 } from "@ant-design/icons";
-import PostImages from "./PostImages";
+import PostImages from "./postImages";
+import CommentForm from "./commentForm";
 
 const PostCard = ({ post }) => {
+  const [liked, setLiked] = useState(false);
+  const [commentFormOpened, setCommentFormOpened] = useState(false);
   const id = useSelector((state) => state.me?.id); //optional chaining 연산자 me가 있으면 id가 들어가고 없으면 들어가지 않는다.
 
+  const onToggleLike = useCallback(() => {
+    setLiked((prev) => !prev);
+  }, []);
+
+  const onToggleComment = useCallback(() => {
+    setCommentFormOpened((prev) => !prev);
+  });
+
   return (
-    <div>
+    <div style={{ marginBottom: 20 }}>
       <Card
         cover={post.Images[0] && <PostImages images={post.Images} />}
         actions={[
           <RetweetOutlined key="retweet" />,
-          <HeartOutlined key="heart" />,
-          <MessageOutlined key="comment" />,
+          liked ? (
+            <HeartTwoTone
+              twoToneColor="#eb2f96"
+              key="heart"
+              onClick={onToggleLike}
+            />
+          ) : (
+            <HeartOutlined key="heart" onClick={onToggleLike} />
+          ),
+          <MessageOutlined key="comment" onClick={onToggleComment} />,
           <Popover
             key="more"
             content={
@@ -46,8 +66,25 @@ const PostCard = ({ post }) => {
           description={post.content}
         />
       </Card>
-      {/* <CommentForm />
-      <Comments /> */}
+      {commentFormOpened && (
+        <div>
+          <CommentForm post={post} />
+          <List
+            header={`${post.Comments.length}개의 댓글`}
+            itemLayout="horizontal"
+            dataSource={post.Comments}
+            renderItem={(item) => (
+              <li>
+                <Comment
+                  author={item.User.nickname}
+                  avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                  content={item.content}
+                />
+              </li>
+            )}
+          />
+        </div>
+      )}
     </div>
   );
 };

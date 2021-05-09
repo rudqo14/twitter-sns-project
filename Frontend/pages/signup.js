@@ -89,7 +89,7 @@ const Signup = () => {
           </Checkbox>
         </div>
         <div style={{ marginTop: 10 }}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType={"submit"}>
             가입하기
           </Button>
         </div>

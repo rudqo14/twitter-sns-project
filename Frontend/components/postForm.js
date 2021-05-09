@@ -38,7 +38,7 @@ const PostFrom = () => {
       <div>
         <input type="file" multiple hidden ref={imageInput} />
         <button onClick={onClickImageUpload}>이미지 업로드</button>
-        <button type="primary" style={{ float: "right" }} htmlType="submit">
+        <button type="primary" style={{ float: "right" }} htmlType={"submit"}>
           짹
         </button>
       </div>
