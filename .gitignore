@@ -2,6 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,vscode,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,vscode,node
 
+lecture
+testFrontend
+package-lock
+
 ### Node ###
 # Logs
 logs
