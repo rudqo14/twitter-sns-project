@@ -1,1 +1,1 @@
-# Be my mac app
+# SNS project
